@@ -112,8 +112,8 @@ void goDirList::allowExt(string ext)
     allowedExt.push_back(ext);
 
     // add upper/lower case conversion (will this iterate too much??)
-    //allowedExt.push_back(toLower(ext));
-    //allowedExt.push_back(toUpper(ext));
+    allowedExt.push_back(toLower(ext));
+    allowedExt.push_back(toUpper(ext));
 }
 
 //------------------------------------------------
