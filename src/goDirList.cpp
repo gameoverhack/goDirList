@@ -19,10 +19,26 @@ int goDirList::size()
     return files.size();
 }
 
+int    goDirList::findFileByName(string needle){
+	string haystack;
+	for(int i = 0; i < files.size(); i++){
+		haystack = getName(i);
+		if(haystack == needle){
+			return i;
+		}
+	}
+	return -1;
+}
+
 //------------------------------------------------
 string goDirList::getName(int pos)
 {
     return files[pos].name;
+}
+string  goDirList::getNameWithoutExtension(int pos){
+	string str = getName(pos);
+	return str.substr(0, str.find_last_of("."));
+	
 }
 
 //------------------------------------------------
