@@ -28,7 +28,7 @@ using Poco::DateTimeFormat;
 
 typedef struct
 {
-    string	name;
+    string    name;
     string	path;
     string	modified;
     string	created;
@@ -46,8 +46,10 @@ public:
     };
     ~goDirList() {};
 
+	int		findFileByName(string name);
     void	setVerbose(bool _verbose);
     string	getName(int pos);
+	string  getNameWithoutExtension(int pos);
     string	getPath(int pos);
     string	getCreated(int pos);									// returns date created
     string	getModified(int pos);									// returns date modified
