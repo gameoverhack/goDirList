@@ -19,10 +19,26 @@ int goDirList::size()
     return files.size();
 }
 
+int    goDirList::findFileByName(string needle){
+	string haystack;
+	for(int i = 0; i < files.size(); i++){
+		haystack = getName(i);
+		if(haystack == needle){
+			return i;
+		}
+	}
+	return -1;
+}
+
 //------------------------------------------------
 string goDirList::getName(int pos)
 {
     return files[pos].name;
+}
+string  goDirList::getNameWithoutExtension(int pos){
+	string str = getName(pos);
+	return str.substr(0, str.find_last_of("."));
+	
 }
 
 //------------------------------------------------
@@ -112,8 +128,8 @@ void goDirList::allowExt(string ext)
     allowedExt.push_back(ext);
 
     // add upper/lower case conversion (will this iterate too much??)
-    //allowedExt.push_back(toLower(ext));
-    //allowedExt.push_back(toUpper(ext));
+    allowedExt.push_back(toLower(ext));
+    allowedExt.push_back(toUpper(ext));
 }
 
 //------------------------------------------------
